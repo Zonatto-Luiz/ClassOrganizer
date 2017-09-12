@@ -1,3 +1,6 @@
+package main;
+
+import java.io.File;
 import java.util.ArrayList;
 
 
@@ -5,16 +8,20 @@ public class Main {
 
     public static void main(String[] args) {
         // write your code here
-        String text = "/Projects/ClassOrganizer/src/FallSemester10.pdf";
+        //String text = "/Projects/ClassOrganizer/src/FallSemester10.pdf";
 
-        PDFExtract pdfExt = new PDFExtract();
-        pdfExt.extractWords(text);
-        
+        try {
+            File file = new File("C:\\FallSemester10.pdf");
+            PDFExtract pdfExt = new PDFExtract();
+            pdfExt.extractWords(file);
+            ArrayList<String> list = pdfExt.getStringList();
+            ArrayList<Course> listC = new ArrayList<>();
 
-        ArrayList<String> list = pdfExt.getStringList();
-        ArrayList<Course> listC = new ArrayList<>();
-        
-        System.out.println(pdfExt.toString());
+            System.out.println(pdfExt.toString());
+        }catch(Exception e){
+            System.out.println("File not found");
+        }
+
     }
 
         
