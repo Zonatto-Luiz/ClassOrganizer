@@ -30,7 +30,7 @@ public class PDFExtract {
         Matcher m = p.matcher(text);
 
         while (m.find()) {
-            stringList.add(m.group());
+            m.group();
         }
     }
 
